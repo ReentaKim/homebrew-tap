@@ -1,6 +1,6 @@
 cask "sagebar" do
-  version "0.4.0"
-  sha256 "05fda35bda6efbd510e1590391630fec8568b58c2f27ec4cbd5dc797a26814f2"
+  version "0.5.0"
+  sha256 "75093ed127daa3afe5b259472845c1c6f281116529cb6cd5248512f0058c27c6"
 
   url "https://github.com/ReentaKim/SageBar/releases/download/v#{version}/SageBar-#{version}.dmg"
   name "SageBar"
