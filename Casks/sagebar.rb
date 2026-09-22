@@ -1,6 +1,6 @@
 cask "sagebar" do
-  version "0.7.3"
-  sha256 "03168a41e26721e07dea7d9494672d199a9cccfe40260520891eb9b06568bec0"
+  version "0.7.4"
+  sha256 "b3afcf55fb90202ad18b97c94174a29871c06d922a78b567c181616cbd5d1f78"
 
   url "https://github.com/ReentaKim/SageBar/releases/download/v#{version}/SageBar-#{version}.dmg"
   name "SageBar"
@@ -15,6 +15,14 @@ cask "sagebar" do
   postflight do
     system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/SageBar.app"], sudo: false
   end
+
+  caveats <<~EOS
+    SageBar는 이 Mac에 설치된 Claude Code CLI(claude)로 편지를 짓습니다.
+      1) Claude Code 설치: https://claude.com/claude-code
+      2) 터미널에서 `claude` 를 한 번 실행해 로그인
+      3) SageBar 실행 → 메뉴바 아이콘 → 시작
+    Claude Code가 없으면 SageBar가 설치 안내 화면을 띄우고 자동 생성은 멈춥니다.
+  EOS
 
   uninstall quit: "io.github.reentakim.sagebar"
 
