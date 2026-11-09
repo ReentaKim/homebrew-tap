@@ -1,6 +1,6 @@
 cask "modoit" do
-  version "0.3.0"
-  sha256 "e13f4e5009bb49c09d0f1c310c97e55e153a7d4e44e19cd8551c4324a4822a34"
+  version "0.4.0"
+  sha256 "26e8401506d3312bdd9fddb1c1bec789f336492ebcf5337e073ad9081efa4549"
 
   url "https://github.com/ReentaKim/Modoit/releases/download/v#{version}/Modoit-#{version}.dmg"
   name "Modoit"
