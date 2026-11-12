@@ -12,9 +12,16 @@ cask "sagebar" do
   app "SageBar.app"
 
   # 공증되지 않은 앱이므로 격리 속성을 벗겨 첫 실행 경고를 없앤다
-  postflight do
-    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/SageBar.app"], sudo: false
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/SageBar.app"]
   end
+
+  uninstall quit: "io.github.reentakim.sagebar"
+
+  zap trash: [
+    "~/Library/Application Support/SageBar",
+    "~/Library/Preferences/io.github.reentakim.sagebar.plist",
+  ]
 
   caveats <<~EOS
     SageBar는 이 Mac에 설치된 Claude Code CLI(claude)로 편지를 짓습니다.
@@ -23,11 +30,4 @@ cask "sagebar" do
       3) SageBar 실행 → 메뉴바 아이콘 → 시작
     Claude Code가 없으면 SageBar가 설치 안내 화면을 띄우고 자동 생성은 멈춥니다.
   EOS
-
-  uninstall quit: "io.github.reentakim.sagebar"
-
-  zap trash: [
-    "~/Library/Application Support/SageBar",
-    "~/Library/Preferences/io.github.reentakim.sagebar.plist",
-  ]
 end
