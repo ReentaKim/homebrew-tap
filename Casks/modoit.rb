@@ -7,7 +7,7 @@ cask "modoit" do
   desc "Notes that stick: any note becomes a desktop sticky, saved as Markdown"
   homepage "https://github.com/ReentaKim/Modoit"
 
-  depends_on macos: :sequoia
+  depends_on macos: ">= :sequoia"
 
   app "Modoit.app"
 
