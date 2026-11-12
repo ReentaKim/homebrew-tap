@@ -1,13 +1,13 @@
 cask "modoit" do
-  version "0.4.0"
-  sha256 "26e8401506d3312bdd9fddb1c1bec789f336492ebcf5337e073ad9081efa4549"
+  version "2.0.0"
+  sha256 "c1b936766c180c5b683419b2babf36ac69a78bbb1f0905df82547c63636b748e"
 
   url "https://github.com/ReentaKim/Modoit/releases/download/v#{version}/Modoit-#{version}.dmg"
   name "Modoit"
   desc "Notes that stick: any note becomes a desktop sticky, saved as Markdown"
   homepage "https://github.com/ReentaKim/Modoit"
 
-  depends_on macos: :ventura
+  depends_on macos: :sequoia
 
   app "Modoit.app"
 
