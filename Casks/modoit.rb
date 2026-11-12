@@ -12,13 +12,9 @@ cask "modoit" do
   app "Modoit.app"
 
   # 공증되지 않은 앱이므로 격리 속성을 벗겨 첫 실행 경고를 없앤다
-  postflight do
-    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/Modoit.app"], sudo: false
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Modoit.app"]
   end
-
-  caveats <<~EOS
-    첫 실행 때 메모를 저장할 폴더를 고릅니다. 메모는 그 폴더 안에 .md 파일로만 저장됩니다.
-  EOS
 
   uninstall quit: "io.github.reentakim.modoit"
 
@@ -27,4 +23,8 @@ cask "modoit" do
     "~/Library/Caches/io.github.reentakim.modoit",
     "~/Library/WebKit/io.github.reentakim.modoit",
   ]
+
+  caveats <<~EOS
+    첫 실행 때 메모를 저장할 폴더를 고릅니다. 메모는 그 폴더 안에 .md 파일로만 저장됩니다.
+  EOS
 end
