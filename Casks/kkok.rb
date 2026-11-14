@@ -1,6 +1,6 @@
 cask "kkok" do
-  version "0.2.1"
-  sha256 "4225304ef8fca6bc0129cbbffcf02f56d2ff164fc03d7047ef4ecb8304b6cf40"
+  version "0.3.0"
+  sha256 "04f427ddbc440eae3bf679132e09b0815568792a15d2049f942658a8c7d129e4"
 
   url "https://github.com/ReentaKim/Kkok/releases/download/v#{version}/Kkok-#{version}.zip"
   name "Kkok"
